@@ -1,0 +1,62 @@
+{
+  "name": "smarty-piltismart" ,
+ "productName": "SMARTY - PiltiSmart",
+  "version": "1.0.2",
+  "description": "A cross-platform desktop app for smart utilities",
+  "author": "Umesh <umesh@example.com>",
+  "homepage": "https://piltismart.com",
+  "main": "src/main.js",
+  "scripts": {
+    "start": "electron .",
+    "generate-icons": "node scripts/generate-icons.js",
+    "electron:build": "electron-builder",
+    "dist": "electron-builder --mac --win --linux"
+  },
+  "devDependencies": {
+    "electron": "^28.0.0",
+    "electron-builder": "^24.0.0"
+  },
+  "build": {
+    "appId": "com.piltismart.smartyapp",
+    "directories": {
+      "output": "dist"
+    },
+    "files": [
+      "src/**/*",
+      "build/**/*"
+    ],
+    "mac": {
+      
+      "category": "public.app-category.utilities",
+      "target": [
+        {
+          "target": "dmg",
+          "arch": ["x64", "arm64"]
+        }
+      ]
+    },
+    "win": {
+      
+      "target": [
+        {
+          "target": "nsis",
+          "arch": ["x64", "arm64"]
+        }
+      ]
+    },
+    "linux": {
+      "category": "Utility",
+      "maintainer": "Umesh <umesh@piltismart.com>",
+      "target": [
+        {
+          "target": "AppImage",
+          "arch": ["x64", "arm64"]
+        },
+        {
+          "target": "deb",
+          "arch": ["x64", "arm64"]
+        }
+      ]
+    }
+  }
+}
