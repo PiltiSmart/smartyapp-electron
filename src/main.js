@@ -14,12 +14,16 @@ function createWindow() {
     frame: true, // Window with header
     resizable: false, // Disable resizing
     title: 'Smarty App - Your SMART Application',
-    titleBarStyle: 'default' // Native title bar look
+    titleBarStyle: 'visible' // Native title bar look
   });
 
   // Load the mobile-optimized website
-  mainWindow.loadURL('https://smartyapp.piltismart.com/');
-
+  mainWindow.loadURL('https://smarty-test-94fa4.web.app/');
+  mainWindow.setTitle('Smarty');
+      mainWindow.on('page-title-updated', (e) => {
+        e.preventDefault(); // prevent Chromium override
+        mainWindow.setTitle('Smarty');
+      });
   // Handle window closed event
   mainWindow.on('closed', () => {
     mainWindow = null;
